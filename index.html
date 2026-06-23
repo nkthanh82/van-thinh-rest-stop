@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>the Vạn Thịnh Rest Stop — UI tạm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --jungle:#23311C;--leaf:#7A9A55;--yellow:#F5C518;--wood:#9C6B3F;
+    --steel:#1C1E1A;--paper:#F4EFE4;--ink:#2A2E24;--muted:#6f7263;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px;overflow-x:hidden;}
+  h1,h2,h3{font-weight:800;letter-spacing:-.01em;line-height:1.08;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+  .script{font-family:'Caveat',cursive;font-weight:700;}
+  a{text-decoration:none;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:8px;font-weight:700;font-size:16px;min-height:48px;cursor:pointer;border:none;transition:.18s;font-family:inherit;}
+  .btn-y{background:var(--yellow);color:var(--steel);} .btn-y:hover{background:#e3b50c;transform:translateY(-2px);}
+  .btn-ghost{border:2px solid #fff;color:#fff;background:transparent;} .btn-ghost:hover{background:rgba(255,255,255,.14);}
+  .btn-dark{background:var(--steel);color:var(--yellow);} .btn-dark:hover{background:#000;}
+  .eyebrow{font-weight:700;letter-spacing:2.5px;text-transform:uppercase;font-size:12.5px;color:var(--leaf);}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1);}
+  .rv.in{opacity:1;transform:none;}
+
+  /* LOGO */
+  .logo{display:flex;flex-direction:column;line-height:.82;user-select:none;}
+  .logo .the{font-family:'Caveat';font-weight:700;font-size:20px;color:var(--yellow);transform:rotate(-6deg);margin-bottom:-3px;margin-left:2px;}
+  .logo .nm{font-weight:800;font-size:21px;letter-spacing:.5px;}
+  .logo .nm .b{color:var(--wood);}
+  .logo .rs{font-weight:600;font-size:9px;letter-spacing:4px;color:var(--muted);margin-top:2px;}
+
+  /* NAV */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;}
+  header.nav .nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1140px;margin:0 auto;}
+  header.nav.scrolled{background:rgba(244,239,228,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.06);}
+  header.nav .logo .nm{color:#fff;} header.nav .logo .nm .b{color:var(--yellow);}
+  header.nav.scrolled .logo .nm{color:var(--ink);} header.nav.scrolled .logo .nm .b{color:var(--wood);}
+  header.nav.scrolled .nav-links a{color:var(--ink);}
+  .nav-links{display:flex;gap:24px;font-size:14.5px;font-weight:600;}
+  .nav-links a{color:#fff;opacity:.92;}
+  .nav-links a:hover{color:var(--yellow);opacity:1;}
+  .nav-right{display:flex;align-items:center;gap:14px;}
+  .lang{font-size:12.5px;font-weight:700;cursor:pointer;color:#fff;background:rgba(255,255,255,.16);padding:6px 10px;border-radius:6px;}
+  header.nav.scrolled .lang{color:var(--ink);background:rgba(0,0,0,.06);}
+  .nav-cta{background:var(--yellow);color:var(--steel);padding:10px 18px;border-radius:8px;font-weight:700;font-size:14px;}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+  .burger span{width:24px;height:2.5px;background:#fff;border-radius:2px;transition:.2s;}
+  header.nav.scrolled .burger span{background:var(--ink);}
+  @media(max-width:840px){
+    .nav-links{position:fixed;top:0;right:-100%;height:100vh;width:74%;max-width:320px;background:var(--jungle);flex-direction:column;padding:90px 30px;gap:8px;transition:.32s;box-shadow:-10px 0 40px rgba(0,0,0,.3);}
+    .nav-links.open{right:0;}
+    .nav-links a{color:#fff!important;font-size:19px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+    .burger{display:flex;z-index:60;}
+    .nav-links.open ~ * {}
+    .nav-cta{display:none;}
+  }
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg,rgba(28,30,26,.12),rgba(28,30,26,.80)),url('assets/hero-rustic.jpg');
+    background-size:cover;background-position:center;color:#fff;}
+  .hero .wrap{padding-bottom:76px;padding-top:120px;}
+  .hero .eyebrow{color:#cfe0b0;}
+  .hero h1{font-size:clamp(38px,6.4vw,72px);max-width:16ch;text-shadow:0 2px 30px rgba(0,0,0,.45);}
+  .hero h1 .y{color:var(--yellow);}
+  .hero p.sub{margin-top:18px;font-size:clamp(16px,1.9vw,20px);max-width:48ch;opacity:.95;text-shadow:0 1px 14px rgba(0,0,0,.55);}
+  .hero .cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+  .scrolldown{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:#fff;opacity:.7;font-size:13px;text-align:center;animation:bob 1.8s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+  /* FACTS */
+  .facts{background:var(--steel);color:#eee;}
+  .facts .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:38px 0;}
+  .fact{text-align:center;border-right:1px solid #34362f;}
+  .fact:last-child{border:none;}
+  .fact .num{font-weight:800;font-size:36px;color:var(--yellow);}
+  .fact .lbl{font-size:13.5px;opacity:.82;margin-top:2px;}
+  @media(max-width:760px){.facts .grid{grid-template-columns:repeat(2,1fr);gap:26px;}.fact:nth-child(2){border:none;}}
+
+  section.blk{padding:84px 0;}
+  .center{text-align:center;max-width:60ch;margin:0 auto;}
+  h2.sec{font-size:clamp(28px,3.9vw,46px);margin-bottom:12px;text-transform:uppercase;}
+  h2.sec .y{color:var(--wood);}
+  .lead{color:#54584a;font-size:18px;}
+  .alt{background:#ece7d8;}
+  .jungle{background:var(--jungle);color:var(--paper);}
+  .jungle h2.sec .y{color:var(--yellow);} .jungle .lead{color:#cdd8b6;opacity:.92;}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;margin-top:30px;}
+  .twocol img{width:100%;border-radius:12px;display:block;box-shadow:0 16px 40px rgba(35,49,28,.16);}
+  @media(max-width:760px){.twocol{grid-template-columns:1fr;gap:26px;}}
+
+  .imgrid{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:42px;}
+  .imgrid img,.imgrid .stack img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block;min-height:200px;cursor:pointer;transition:.3s;}
+  .imgrid img:hover,.imgrid .stack img:hover{filter:brightness(1.06);transform:scale(.995);}
+  .imgrid .stack{display:grid;gap:14px;}
+  @media(max-width:760px){.imgrid{grid-template-columns:1fr;}}
+
+  .explore{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:42px;}
+  .ex{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:26px 22px;transition:.25s;}
+  .ex:hover{background:rgba(245,197,24,.10);border-color:var(--yellow);transform:translateY(-4px);}
+  .ex .ic{font-size:28px;}
+  .ex h3{font-size:16px;margin:10px 0 6px;color:#fff;text-transform:uppercase;letter-spacing:.5px;}
+  .ex p{font-size:14.5px;opacity:.85;}
+  @media(max-width:760px){.explore{grid-template-columns:1fr;}}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;}
+  .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(35,49,28,.12);display:flex;flex-direction:column;border:1px solid #ece5d6;transition:.25s;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(35,49,28,.2);}
+  .card .ph{height:188px;background-size:cover;background-position:center;position:relative;}
+  .badge{position:absolute;top:12px;left:12px;background:var(--yellow);color:var(--steel);font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:6px;letter-spacing:.5px;text-transform:uppercase;}
+  .badge.quote{background:var(--wood);color:#fff;}
+  .card .body{padding:20px;display:flex;flex-direction:column;flex:1;}
+  .card h3{font-size:21px;}
+  .card .pax{font-size:12px;color:var(--leaf);font-weight:700;margin:3px 0 9px;text-transform:uppercase;letter-spacing:.5px;}
+  .card .desc{font-size:14.5px;color:#5b5e50;flex:1;}
+  .card .price{font-weight:800;font-size:24px;color:var(--wood);margin:13px 0;}
+  .card .price small{font-size:12.5px;color:#9b9794;font-weight:500;}
+  .card .price.quote{font-size:18px;}
+  .card .btn-y{width:100%;}
+  @media(max-width:760px){.menu-grid{grid-template-columns:1fr;}}
+
+  .press{background:#ece7d8;}
+  .press .row{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:center;text-align:center;}
+  .press .q{flex:1;min-width:280px;font-weight:800;font-size:22px;line-height:1.35;}
+  .press .q .w{color:var(--wood);}
+  .press .badge2{background:var(--steel);color:#fff;padding:10px 18px;border-radius:8px;font-weight:700;font-size:14px;}
+
+  /* FORM */
+  .formwrap{background:var(--jungle);color:var(--paper);}
+  .formcard{background:var(--paper);color:var(--ink);border-radius:16px;padding:36px;max-width:720px;margin:30px auto 0;box-shadow:0 24px 60px rgba(0,0,0,.3);}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .field{margin-bottom:14px;display:flex;flex-direction:column;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:13.5px;font-weight:600;margin-bottom:5px;}
+  .field label .req{color:#c0392b;}
+  .field input,.field select,.field textarea{font-family:inherit;font-size:15px;padding:12px 14px;border:1.5px solid #d8d0bd;border-radius:8px;background:#fff;color:var(--ink);transition:.15s;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--leaf);box-shadow:0 0 0 3px rgba(122,154,85,.18);}
+  .field .err{color:#c0392b;font-size:12.5px;margin-top:4px;display:none;}
+  .field.bad input,.field.bad select{border-color:#c0392b;}
+  .field.bad .err{display:block;}
+  .opt-toggle{cursor:pointer;color:var(--wood);font-weight:600;font-size:14px;margin:6px 0 14px;display:inline-block;}
+  .opt-fields{display:none;}
+  .opt-fields.open{display:block;}
+  .form-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:6px;}
+  .form-note{font-size:12.5px;color:var(--muted);margin-top:12px;}
+  .thanks{display:none;text-align:center;padding:20px;}
+  .thanks.show{display:block;}
+  .thanks .ic{font-size:46px;}
+  .thanks h3{font-size:24px;margin:8px 0;color:var(--jungle);}
+  @media(max-width:600px){.frow{grid-template-columns:1fr;}.formcard{padding:24px;}}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:36px;}
+  .contact-grid .big{font-weight:800;font-size:30px;color:var(--wood);}
+  .contact-grid p{margin:7px 0;}
+  .mapbox{background:#dcd6c4;border-radius:12px;height:240px;display:flex;align-items:center;justify-content:center;color:var(--wood);font-weight:700;border:1px dashed var(--wood);text-align:center;}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr;}}
+
+  footer{background:var(--steel);color:#bdbfb2;padding:36px 0;font-size:14px;text-align:center;}
+
+  /* LIGHTBOX */
+  .lb{position:fixed;inset:0;background:rgba(10,12,9,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;cursor:zoom-out;}
+  .lb.show{display:flex;}
+  .lb img{max-width:92vw;max-height:88vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6);}
+  .lb .x{position:absolute;top:20px;right:26px;color:#fff;font-size:34px;cursor:pointer;line-height:1;}
+
+  /* demo banner */
+  .demobar{background:var(--wood);color:#fff;text-align:center;font-size:13px;padding:7px 12px;font-weight:600;}
+</style>
+</head>
+<body>
+
+<div class="demobar">⚙️ Bản UI tạm để xem thử — ảnh minh hoạ, form chưa nối backend (bấm thử được). Concept "Vườn mộc nhiệt đới".</div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <div class="logo"><span class="the">the</span><span class="nm">VẠN <span class="b">THỊNH</span></span><span class="rs">R E S T &nbsp; S T O P</span></div>
+    <nav class="nav-links" id="navlinks">
+      <a href="#khong-gian" data-en="Space">Không gian</a>
+      <a href="#kham-pha" data-en="Capacity">Sức chứa</a>
+      <a href="#am-thuc" data-en="Cuisine">Ẩm thực</a>
+      <a href="#thuc-don" data-en="Menu">Thực đơn</a>
+      <a href="#dat-doan" data-en="Booking">Đặt đoàn</a>
+      <a href="#lien-he" data-en="Contact">Liên hệ</a>
+    </nav>
+    <div class="nav-right">
+      <span class="lang" id="langbtn">VI · EN</span>
+      <a href="#dat-doan" class="nav-cta" data-en="Book a group">Đặt đoàn</a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Rest stop · Highway to the Mekong">Trạm dừng chân · Cao tốc về miền Tây</div>
+    <h1 data-en="Stop & dine —<br>inside <span class='y'>a green garden</span>">Dừng chân, ăn ngon —<br>giữa <span class="y">một khu vườn</span></h1>
+    <p class="sub" data-en="Rustic containers, lush trees, koi pond, string lights. 700 seats, groups of 400–500 with room to breathe.">Container mộc, cây xanh rợp bóng, hồ koi, đèn dây. 700 chỗ, tiếp đoàn 400–500 khách mà vẫn thoáng.</p>
+    <div class="cta-row">
+      <a href="#dat-doan" class="btn btn-y" data-en="Book a group">Đặt đoàn</a>
+      <a href="tel:0355829839" class="btn btn-ghost">📞 0355 829 839</a>
+    </div>
+  </div>
+  <div class="scrolldown">cuộn xuống ▾</div>
+</section>
+
+<!-- FACTS -->
+<div class="facts">
+  <div class="wrap"><div class="grid">
+    <div class="fact"><div class="num" data-count="700">0</div><div class="lbl" data-en="seats">chỗ ngồi</div></div>
+    <div class="fact"><div class="num">3.500m²</div><div class="lbl" data-en="green garden">vườn cây xanh</div></div>
+    <div class="fact"><div class="num">400–500</div><div class="lbl" data-en="guests / group">khách / đoàn</div></div>
+    <div class="fact"><div class="num" data-en="Large">Lớn</div><div class="lbl" data-en="coach parking">bãi xe khách</div></div>
+  </div></div>
+</div>
+
+<!-- KHONG GIAN -->
+<section class="blk" id="khong-gian">
+  <div class="wrap">
+    <div class="center rv">
+      <div class="eyebrow" data-en="The space">Không gian</div>
+      <h2 class="sec" data-en="Dine <span class='y'>in the garden</span>">Ngồi ăn <span class="y">giữa vườn</span></h2>
+      <p class="lead" data-en="Not a concrete stop. Van Thinh is a real garden — trees through the space, a koi pond, ferns, warm string lights. Big groups still feel airy.">Không phải trạm bê tông. Vạn Thịnh là vườn thật — cây mọc xuyên nhà, hồ koi, dương xỉ, đèn dây ấm. Đoàn đông vẫn thoáng.</p>
+    </div>
+    <div class="imgrid rv">
+      <img src="assets/wood-dining.jpg" alt="Ăn giữa vườn" data-lb>
+      <div class="stack">
+        <img src="assets/garden-space.jpg" alt="Sân vườn" data-lb>
+        <img src="assets/string-lights.jpg" alt="Đèn dây" data-lb>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KHAM PHA -->
+<section class="blk jungle" id="kham-pha">
+  <div class="wrap">
+    <div class="center rv">
+      <div class="eyebrow" style="color:var(--yellow)" data-en="For tour operators & guides">Dành cho điều hành tour &amp; HDV</div>
+      <h2 class="sec" data-en="Explore <span class='y'>capacity</span>">Khám phá <span class="y">sức chứa</span></h2>
+      <p class="lead" data-en="See the layout & capacity before you bring a group.">Anh/chị xem trước bố trí chỗ, sức chứa từng khu — yên tâm trước khi dẫn đoàn tới.</p>
+    </div>
+    <div class="explore">
+      <div class="ex rv"><div class="ic">🗺️</div><h3 data-en="Floor plan">Sơ đồ mặt bằng</h3><p data-en="Seating zones, walkways, restrooms, parking — see where your group sits.">Các khu ngồi, lối đi, nhà vệ sinh, bãi xe — nhìn là hình dung được đoàn ngồi đâu.</p></div>
+      <div class="ex rv"><div class="ic">👥</div><h3 data-en="Zone capacity">Sức chứa từng khu</h3><p data-en="700 seats in zones — groups of 400–500 stay roomy.">700 chỗ, chia khu — tiếp đoàn 400–500 khách vẫn rộng, không chen.</p></div>
+      <div class="ex rv"><div class="ic">🚌</div><h3 data-en="Coach parking">Bãi xe khách</h3><p data-en="Large lot, easy in/out — drivers relax.">Chỗ đậu xe lớn, ra vào dễ — tài xế đoàn không phải lo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AM THUC -->
+<section class="blk alt" id="am-thuc">
+  <div class="wrap"><div class="center rv">
+    <div class="eyebrow" data-en="Cuisine">Ẩm thực</div>
+    <h2 class="sec" data-en="Mekong specialties, <span class='y'>made for groups</span>">Đặc sản miền Tây, <span class="y">nấu cho đoàn</span></h2>
+    <p class="lead" data-en="Big kitchen, fast plating, Mekong flavors. Set menus ready for groups.">Bếp lớn, ra món nhanh, khẩu vị Tây Nam Bộ. Set menu sẵn cho đoàn — gọi là có.</p>
+  </div></div>
+</section>
+
+<!-- MENU -->
+<section class="blk" id="thuc-don">
+  <div class="wrap">
+    <div class="center rv">
+      <div class="eyebrow" data-en="Group set menus">Thực đơn cho đoàn</div>
+      <h2 class="sec" data-en="Set menus — <span class='y'>quick & clear</span>">Set menu — <span class="y">chọn nhanh, giá rõ</span></h2>
+    </div>
+    <div class="menu-grid">
+      <div class="card rv">
+        <div class="ph" style="background-image:url('assets/food-set.jpg')"><span class="badge" data-en="Popular">Phổ biến</span></div>
+        <div class="body"><h3>Set Miệt Vườn</h3><div class="pax" data-en="6 pax · 6 dishes + soup">Gói 6 người · 6 món + canh</div>
+          <div class="desc" data-en="Braised fish, steamed chicken, greens, sour soup… (sample).">Cá kho tộ, gà hấp lá chanh, rau luộc kho quẹt, canh chua… (món mẫu).</div>
+          <div class="price">— <small data-en="đ/pax · price TBD">đ/người · chờ giá thật</small></div>
+          <button class="btn btn-y" data-set="Set Miệt Vườn" data-en="Book this set">Đặt set này</button></div>
+      </div>
+      <div class="card rv">
+        <div class="ph" style="background-image:url('assets/food-hotpot.jpg')"><span class="badge" data-en="Popular">Phổ biến</span></div>
+        <div class="body"><h3>Set Sông Nước</h3><div class="pax" data-en="10 pax · hotpot + 7 dishes">Gói 10 người · lẩu + 7 món</div>
+          <div class="desc" data-en="Linh fish hotpot, fried shrimp, beef in betel leaf… (sample).">Lẩu cá linh bông điên điển, tôm rang, bò lá lốt… (món mẫu).</div>
+          <div class="price">— <small data-en="đ/pax · price TBD">đ/người · chờ giá thật</small></div>
+          <button class="btn btn-y" data-set="Set Sông Nước" data-en="Book this set">Đặt set này</button></div>
+      </div>
+      <div class="card rv">
+        <div class="ph" style="background-image:url('assets/food-wood.jpg')"><span class="badge quote" data-en="On request">Theo yêu cầu</span></div>
+        <div class="body"><h3>Set Đoàn Lớn</h3><div class="pax" data-en="From 50 guests · custom">Từ 50 khách · thiết kế riêng</div>
+          <div class="desc" data-en="Custom menu by budget & taste. Vegetarian, parties, events — covered.">Thực đơn tùy chỉnh theo ngân sách &amp; khẩu vị. Ăn chay, tiệc, sự kiện — lo hết.</div>
+          <div class="price quote" data-en="Get a quote">Liên hệ báo giá</div>
+          <button class="btn btn-y" data-set="Set Đoàn Lớn" data-en="Get advice">Nhận tư vấn</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="blk press">
+  <div class="wrap"><div class="row rv">
+    <div class="q" data-en="Featured by HTV on <span class='w'>“Made by Vietnam — Vietnamese brands”.</span>">Được HTV ghi hình trong <span class="w">“Made by Vietnam — Dấu ấn thương hiệu Việt”.</span></div>
+    <div class="badge2">HTV · Made by Vietnam</div>
+  </div></div>
+</section>
+
+<!-- DAT DOAN FORM -->
+<section class="blk formwrap" id="dat-doan">
+  <div class="wrap">
+    <div class="center rv">
+      <div class="eyebrow" style="color:var(--yellow)" data-en="Group booking">Đặt đoàn / Đặt bàn</div>
+      <h2 class="sec" data-en="Lead a group? <span class='y'>Send us the details</span>">Anh/chị dẫn đoàn? <span class="y">Gửi thông tin</span></h2>
+      <p class="lead" data-en="We arrange tables in the garden + set menu, and call back to confirm within hours.">Tụi em xếp bàn giữa vườn + set menu, gọi lại xác nhận trong vài giờ.</p>
+    </div>
+
+    <div class="formcard rv">
+      <form id="bookform" novalidate>
+        <div class="frow">
+          <div class="field full"><label data-en="Unit / tour company">Tên đơn vị / công ty tour</label><input type="text" name="donvi" placeholder="VD: Cty Du lịch ABC (để trống nếu khách lẻ)"></div>
+          <div class="field"><label data-en="Contact person">Người liên hệ <span class="req">*</span></label><input type="text" name="ten" required><div class="err" data-en="Please enter your name">Nhập tên giúp em</div></div>
+          <div class="field"><label data-en="Phone / Zalo">SĐT / Zalo <span class="req">*</span></label><input type="tel" name="sdt" required placeholder="09xxxxxxxx"><div class="err" data-en="Enter a valid VN phone">Số điện thoại chưa đúng</div></div>
+          <div class="field"><label data-en="Guests">Số khách <span class="req">*</span></label><input type="number" name="khach" min="1" max="600" required placeholder="VD: 120"><div class="err" data-en="Enter number of guests">Nhập số khách</div></div>
+          <div class="field"><label data-en="Arrival date">Ngày đến <span class="req">*</span></label><input type="date" name="ngay" required><div class="err" data-en="Pick a date">Chọn ngày</div></div>
+          <div class="field"><label data-en="Arrival time">Giờ đến (dự kiến)</label><input type="time" name="gio"></div>
+          <div class="field"><label data-en="Set menu">Set menu quan tâm</label>
+            <select name="set"><option value="">— Tư vấn giúp em —</option><option>Set Miệt Vườn</option><option>Set Sông Nước</option><option>Set Đoàn Lớn</option></select>
+          </div>
+        </div>
+        <span class="opt-toggle" id="optToggle" data-en="+ More details (optional)">+ Thêm chi tiết (không bắt buộc)</span>
+        <div class="opt-fields" id="optFields">
+          <div class="frow">
+            <div class="field"><label data-en="Budget / pax">Ngân sách / đầu người</label><input type="text" name="ngansach" placeholder="VD: 150.000đ"></div>
+            <div class="field"><label data-en="Coaches / parking">Số xe / bãi đỗ</label><input type="text" name="xe" placeholder="VD: 3 xe 45 chỗ"></div>
+            <div class="field full"><label data-en="Notes (vegetarian, allergies…)">Ghi chú (ăn chay, dị ứng…)</label><textarea name="ghichu" rows="2"></textarea></div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-y" data-en="Send request">Gửi yêu cầu đặt đoàn</button>
+          <a href="https://zalo.me/0355829839" target="_blank" class="btn btn-dark">💬 Chat Zalo</a>
+          <a href="tel:0355829839" class="btn" style="background:#fff;border:1.5px solid #d8d0bd;color:var(--ink)">📞 Gọi ngay</a>
+        </div>
+        <p class="form-note" data-en="Info is used only to confirm your booking. (Demo: not connected to backend yet.)">Thông tin chỉ dùng để liên hệ xác nhận đặt chỗ. (Bản demo: chưa nối backend.)</p>
+      </form>
+      <div class="thanks" id="thanks">
+        <div class="ic">🌿</div>
+        <h3 data-en="Got it! We'll call back soon.">Đã nhận! Tụi em gọi lại sớm.</h3>
+        <p id="thanksMsg"></p>
+        <button class="btn btn-y" id="resetBtn" style="margin-top:14px" data-en="Send another">Gửi yêu cầu khác</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIEN HE -->
+<section class="blk" id="lien-he">
+  <div class="wrap">
+    <div class="center rv"><div class="eyebrow" data-en="Contact">Liên hệ</div><h2 class="sec" data-en="Visit <span class='y'>Van Thinh</span>">Ghé <span class="y">Vạn Thịnh</span></h2></div>
+    <div class="contact-grid rv">
+      <div class="info">
+        <p class="big">0355 829 839</p>
+        <p><b data-en="Address:">Địa chỉ:</b> 71 Tân Túc, Xã Tân Nhựt, TP.HCM</p>
+        <p><b data-en="Hours:">Giờ mở cửa:</b> 6:00 – 21:00 <span data-en="daily">mỗi ngày</span></p>
+        <p><b>Zalo:</b> 0355829839</p>
+        <a href="https://maps.app.goo.gl/1VCux6EfDfde8iRc8" target="_blank" class="btn btn-dark" style="margin-top:8px" data-en="Open Google Maps">Mở Google Maps</a>
+      </div>
+      <div class="mapbox">[ Google Maps nhúng tại đây ]</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="script" style="color:var(--yellow);font-size:18px;">the</span> VẠN THỊNH REST STOP · 71 Tân Túc, Xã Tân Nhựt, TP.HCM · 0355 829 839 — <i>UI tạm v2 · 2026</i>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb"><span class="x">&times;</span><img src="" alt=""></div>
+
+<script>
+(function(){
+  // sticky nav
+  var nav=document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>40); }
+  window.addEventListener('scroll',onScroll); onScroll();
+
+  // mobile menu
+  var burger=document.getElementById('burger'), links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){ links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ links.classList.remove('open'); }); });
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  // count up
+  var counted=false;
+  var facts=document.querySelector('.facts');
+  var cio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting&&!counted){ counted=true;
+    document.querySelectorAll('[data-count]').forEach(function(el){ var t=+el.getAttribute('data-count'),s=0,step=Math.ceil(t/40);
+      var iv=setInterval(function(){ s+=step; if(s>=t){s=t;clearInterval(iv);} el.textContent=s; },22); });
+  }});},{threshold:.5});
+  if(facts) cio.observe(facts);
+
+  // lightbox
+  var lb=document.getElementById('lb'), lbimg=lb.querySelector('img');
+  document.querySelectorAll('[data-lb]').forEach(function(im){ im.addEventListener('click',function(){ lbimg.src=im.src; lb.classList.add('show'); }); });
+  lb.addEventListener('click',function(){ lb.classList.remove('show'); });
+
+  // optional fields toggle
+  var ot=document.getElementById('optToggle'), of=document.getElementById('optFields');
+  ot.addEventListener('click',function(){ of.classList.toggle('open'); ot.textContent=of.classList.contains('open')?'− Ẩn bớt':(langEN?'+ More details (optional)':'+ Thêm chi tiết (không bắt buộc)'); });
+
+  // menu "đặt set này" -> prefill select + scroll to form
+  document.querySelectorAll('[data-set]').forEach(function(b){ b.addEventListener('click',function(){
+    var sel=document.querySelector('select[name=set]'); if(sel) sel.value=b.getAttribute('data-set');
+    document.getElementById('dat-doan').scrollIntoView({behavior:'smooth'});
+  }); });
+
+  // form validation + fake submit
+  var form=document.getElementById('bookform');
+  function setBad(name,bad){ var f=form.querySelector('[name='+name+']').closest('.field'); if(f) f.classList.toggle('bad',bad); }
+  form.addEventListener('submit',function(e){ e.preventDefault(); var ok=true;
+    var ten=form.ten.value.trim(); setBad('ten',!ten); if(!ten)ok=false;
+    var sdt=form.sdt.value.trim(); var goodPhone=/^0\d{9}$/.test(sdt.replace(/\s/g,'')); setBad('sdt',!goodPhone); if(!goodPhone)ok=false;
+    var khach=form.khach.value.trim(); setBad('khach',!khach||+khach<1); if(!khach||+khach<1)ok=false;
+    var ngay=form.ngay.value; setBad('ngay',!ngay); if(!ngay)ok=false;
+    if(!ok) return;
+    var msg=(langEN?'Group of ':'Đoàn ')+(form.khach.value)+(langEN?' guests, ':' khách, ')+(form.ngay.value)+'. '+(langEN?'We will call ':'Tụi em gọi ')+form.sdt.value+'.';
+    document.getElementById('thanksMsg').textContent=msg;
+    form.style.display='none'; document.getElementById('thanks').classList.add('show');
+  });
+  document.getElementById('resetBtn').addEventListener('click',function(){ form.reset(); form.style.display='block'; document.getElementById('thanks').classList.remove('show'); });
+
+  // VI/EN toggle
+  var langEN=false, langbtn=document.getElementById('langbtn');
+  // store original VI
+  document.querySelectorAll('[data-en]').forEach(function(el){ el.setAttribute('data-vi', el.innerHTML); });
+  langbtn.addEventListener('click',function(){ langEN=!langEN;
+    document.querySelectorAll('[data-en]').forEach(function(el){ el.innerHTML = langEN?el.getAttribute('data-en'):el.getAttribute('data-vi'); });
+    langbtn.textContent = langEN?'EN · VI':'VI · EN';
+    document.documentElement.lang = langEN?'en':'vi';
+  });
+  window.langEN=function(){return langEN;};
+})();
+</script>
+</body>
+</html>
