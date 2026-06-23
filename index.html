@@ -21,7 +21,7 @@
   .script{font-family:'Caveat',cursive;font-weight:700;}
   a{text-decoration:none;}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:8px;font-weight:700;font-size:16px;min-height:48px;cursor:pointer;border:none;transition:.18s;font-family:inherit;}
-  .btn-y{background:var(--yellow);color:var(--steel);} .btn-y:hover{background:#e3b50c;transform:translateY(-2px);}
+  .btn-y{background:var(--yellow);color:var(--steel);border-radius:12px;box-shadow:0 8px 22px rgba(245,197,24,.42);} .btn-y:hover{background:#e3b50c;transform:translateY(-2px);box-shadow:0 12px 28px rgba(245,197,24,.5);}
   .btn-ghost{border:2px solid #fff;color:#fff;background:transparent;} .btn-ghost:hover{background:rgba(255,255,255,.14);}
   .btn-dark{background:var(--steel);color:var(--yellow);} .btn-dark:hover{background:#000;}
   .eyebrow{font-weight:700;letter-spacing:2.5px;text-transform:uppercase;font-size:12.5px;color:var(--leaf);}
@@ -64,10 +64,10 @@
   }
 
   /* HERO */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;
-    background:linear-gradient(180deg,rgba(28,30,26,.12),rgba(28,30,26,.80)),url('assets/hero-rustic.jpg');
-    background-size:cover;background-position:center;color:#fff;}
-  .hero .wrap{padding-bottom:76px;padding-top:120px;}
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(28,30,26,.22) 0%,rgba(28,30,26,.42) 50%,rgba(28,30,26,.90) 100%);}
+  .hero .wrap{position:relative;z-index:2;padding-bottom:76px;padding-top:120px;}
   .hero .eyebrow{color:#cfe0b0;}
   .hero h1{font-size:clamp(38px,6.4vw,72px);max-width:16ch;text-shadow:0 2px 30px rgba(0,0,0,.45);}
   .hero h1 .y{color:var(--yellow);}
@@ -84,6 +84,22 @@
   .fact .num{font-weight:800;font-size:36px;color:var(--yellow);}
   .fact .lbl{font-size:13.5px;opacity:.82;margin-top:2px;}
   @media(max-width:760px){.facts .grid{grid-template-columns:repeat(2,1fr);gap:26px;}.fact:nth-child(2){border:none;}}
+
+  /* TIỆN ÍCH strip */
+  .util{background:var(--paper);border-bottom:1px solid #e3dccb;}
+  .util .row{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;padding:26px 0;}
+  .util .u{text-align:center;}
+  .util .u .ic{font-size:24px;}
+  .util .u .t{font-size:13px;font-weight:600;margin-top:5px;color:#4a4e40;line-height:1.3;}
+  @media(max-width:760px){.util .row{grid-template-columns:repeat(3,1fr);gap:18px;}}
+
+  /* ĐOÀN + ĐÁNH GIÁ */
+  .doan-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center;margin-top:30px;}
+  .doan-grid img{width:100%;border-radius:14px;display:block;box-shadow:0 16px 40px rgba(35,49,28,.18);}
+  .stars{color:#F5B301;font-size:22px;letter-spacing:2px;}
+  .grev{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #d8d0bd;border-radius:10px;padding:12px 18px;font-weight:700;color:var(--ink);margin-top:14px;box-shadow:0 4px 14px rgba(0,0,0,.06);}
+  .grev b{color:#4285F4;}
+  @media(max-width:760px){.doan-grid{grid-template-columns:1fr;gap:24px;}}
 
   section.blk{padding:84px 0;}
   .center{text-align:center;max-width:60ch;margin:0 auto;}
@@ -202,6 +218,8 @@
 
 <!-- HERO -->
 <section class="hero">
+  <img class="hero-bg" src="assets/real/hero.jpg" onerror="this.onerror=null;this.src='assets/hero-rustic.jpg'" alt="Vạn Thịnh — sân vườn hồ koi">
+  <div class="hero-scrim"></div>
   <div class="wrap">
     <div class="eyebrow" data-en="Rest stop · Highway to the Mekong">Trạm dừng chân · Cao tốc về miền Tây</div>
     <h1 data-en="Stop & dine —<br>inside <span class='y'>a green garden</span>">Dừng chân, ăn ngon —<br>giữa <span class="y">một khu vườn</span></h1>
@@ -221,6 +239,18 @@
     <div class="fact"><div class="num">3.500m²</div><div class="lbl" data-en="green garden">vườn cây xanh</div></div>
     <div class="fact"><div class="num">400–500</div><div class="lbl" data-en="guests / group">khách / đoàn</div></div>
     <div class="fact"><div class="num" data-en="Large">Lớn</div><div class="lbl" data-en="coach parking">bãi xe khách</div></div>
+  </div></div>
+</div>
+
+<!-- TIỆN ÍCH -->
+<div class="util">
+  <div class="wrap"><div class="row">
+    <div class="u"><div class="ic">🚻</div><div class="t" data-en="Clean restrooms">WC sạch sẽ</div></div>
+    <div class="u"><div class="ic">🅿️</div><div class="t" data-en="Large coach parking">Bãi xe khách lớn</div></div>
+    <div class="u"><div class="ic">❄️</div><div class="t" data-en="Air-conditioned area">Khu máy lạnh</div></div>
+    <div class="u"><div class="ic">📶</div><div class="t" data-en="Free wifi">Wifi miễn phí</div></div>
+    <div class="u"><div class="ic">🛡️</div><div class="t" data-en="Secure parking">Giữ xe an toàn</div></div>
+    <div class="u"><div class="ic">🕕</div><div class="t" data-en="Open 6:00–21:00">Mở 6:00–21:00</div></div>
   </div></div>
 </div>
 
@@ -260,11 +290,20 @@
 
 <!-- AM THUC -->
 <section class="blk alt" id="am-thuc">
-  <div class="wrap"><div class="center rv">
-    <div class="eyebrow" data-en="Cuisine">Ẩm thực</div>
-    <h2 class="sec" data-en="Mekong specialties, <span class='y'>made for groups</span>">Đặc sản miền Tây, <span class="y">nấu cho đoàn</span></h2>
-    <p class="lead" data-en="Big kitchen, fast plating, Mekong flavors. Set menus ready for groups.">Bếp lớn, ra món nhanh, khẩu vị Tây Nam Bộ. Set menu sẵn cho đoàn — gọi là có.</p>
-  </div></div>
+  <div class="wrap">
+    <div class="center rv">
+      <div class="eyebrow" data-en="Cuisine">Ẩm thực</div>
+      <h2 class="sec" data-en="Mekong specialties, <span class='y'>made for groups</span>">Đặc sản miền Tây, <span class="y">nấu cho đoàn</span></h2>
+    </div>
+    <div class="twocol rv" style="margin-top:40px">
+      <img src="assets/real/food.jpg" onerror="this.onerror=null;this.src='assets/food-viet.jpg'" alt="Món ăn Vạn Thịnh">
+      <div>
+        <h2 style="font-size:30px;margin-bottom:10px" data-en="Mekong flavors, <span class='y'>plated with care</span>">Chuẩn vị miền Tây, <span style="color:var(--wood)">bày tử tế</span></h2>
+        <p class="lead" data-en="Big kitchen, fast plating even for big groups. Set menus ready — order and it's served.">Bếp lớn, ra món nhanh dù đoàn đông. Set menu sẵn cho đoàn — gọi là có. Khẩu vị Tây Nam Bộ, nguyên liệu tươi.</p>
+        <a href="thuc-don.html" class="btn btn-y" style="margin-top:16px" data-en="View full menu">Xem thực đơn đầy đủ</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- MENU -->
@@ -306,6 +345,26 @@
     <div class="q" data-en="Featured by HTV on <span class='w'>“Made by Vietnam — Vietnamese brands”.</span>">Được HTV ghi hình trong <span class="w">“Made by Vietnam — Dấu ấn thương hiệu Việt”.</span></div>
     <div class="badge2">HTV · Made by Vietnam</div>
   </div></div>
+</section>
+
+<!-- ĐOÀN KHÁCH + ĐÁNH GIÁ -->
+<section class="blk" id="danh-gia">
+  <div class="wrap">
+    <div class="center rv">
+      <div class="eyebrow" data-en="Real groups · Real reviews">Đoàn khách thật · Đánh giá thật</div>
+      <h2 class="sec" data-en="Trusted by <span class='y'>tour groups</span>">Được <span class="y">các đoàn tour</span> tin chọn</h2>
+    </div>
+    <div class="doan-grid rv">
+      <img src="assets/real/doan.jpg" onerror="this.onerror=null;this.src='assets/garden-dining.jpg'" alt="Đoàn khách tại Vạn Thịnh">
+      <div>
+        <div class="stars">★★★★★</div>
+        <p class="lead" style="margin-top:8px" data-en="Hundreds of tour groups have stopped, dined and taken photos in the garden. Read real reviews on Google Maps.">Hàng trăm đoàn tour đã dừng chân, ăn uống và chụp hình giữa vườn. Đánh giá thật — anh/chị đọc trực tiếp trên Google Maps.</p>
+        <a href="https://maps.app.goo.gl/1VCux6EfDfde8iRc8" target="_blank" rel="noopener" class="grev">
+          <b>G</b><span data-en="Read reviews on Google Maps ★">Xem đánh giá trên Google Maps ★</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- DAT DOAN FORM -->
@@ -367,7 +426,7 @@
         <p><b>Zalo:</b> 0355829839</p>
         <a href="https://maps.app.goo.gl/1VCux6EfDfde8iRc8" target="_blank" class="btn btn-dark" style="margin-top:8px" data-en="Open Google Maps">Mở Google Maps</a>
       </div>
-      <div class="mapbox">[ Google Maps nhúng tại đây ]</div>
+      <iframe title="Bản đồ Vạn Thịnh Rest Stop" style="width:100%;height:240px;border:0;border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Van%20Thinh%20Rest%20Stop,%2071%20T%C3%A2n%20T%C3%BAc,%20T%C3%A2n%20Nh%E1%BB%B1t,%20TP.HCM&output=embed"></iframe>
     </div>
   </div>
 </section>
