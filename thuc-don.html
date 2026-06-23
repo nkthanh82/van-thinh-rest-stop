@@ -21,58 +21,71 @@
   .btn-y{background:var(--yellow);color:var(--steel);box-shadow:0 8px 22px rgba(245,197,24,.42);}
   .btn-dark{background:var(--steel);color:var(--yellow);}
 
-  header.top{background:var(--jungle);color:#fff;padding:14px 0;position:sticky;top:0;z-index:20;}
+  header.top{background:var(--jungle);color:#fff;padding:12px 0;position:sticky;top:0;z-index:20;}
   header.top .in{display:flex;align-items:center;justify-content:space-between;}
-  .logo{display:flex;flex-direction:column;line-height:.82;}
-  .logo .the{font-family:'Caveat';color:var(--yellow);font-size:18px;transform:rotate(-6deg);margin-left:2px;}
-  .logo .nm{font-weight:800;font-size:19px;} .logo .nm b{color:var(--yellow);}
-  .logo .rs{font-size:8.5px;letter-spacing:3px;color:#cdd8b6;margin-top:2px;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo img{height:34px;width:auto;display:block;}
+  .logo .txt{display:flex;flex-direction:column;line-height:.82;}
+  .logo .the{font-family:'Caveat';color:var(--yellow);font-size:17px;transform:rotate(-6deg);margin-left:2px;}
+  .logo .nm{font-weight:800;font-size:18px;} .logo .nm b{color:var(--yellow);}
+  .logo .rs{font-size:8px;letter-spacing:3px;color:#cdd8b6;margin-top:2px;}
   .back{color:#fff;font-weight:600;font-size:14px;opacity:.9;}
 
-  .head{background:var(--jungle);color:var(--paper);padding:48px 0 56px;text-align:center;}
+  .head{background:var(--jungle);color:var(--paper);padding:46px 0 54px;text-align:center;}
   .head .eyebrow{font-weight:700;letter-spacing:2.5px;text-transform:uppercase;font-size:12.5px;color:var(--yellow);}
   .head h1{font-size:clamp(30px,5vw,46px);text-transform:uppercase;margin:8px 0;}
-  .head p{opacity:.9;max-width:50ch;margin:0 auto;}
+  .head p{opacity:.9;max-width:54ch;margin:0 auto;}
 
-  /* tabs */
-  .tabs{position:sticky;top:58px;background:var(--paper);z-index:15;border-bottom:1px solid #e3dccb;}
+  .tabs{position:sticky;top:56px;background:var(--paper);z-index:15;border-bottom:1px solid #e3dccb;}
   .tabs .in{display:flex;gap:8px;overflow-x:auto;padding:12px 24px;max-width:1140px;margin:0 auto;}
   .tab{white-space:nowrap;padding:9px 18px;border-radius:999px;font-weight:600;font-size:14px;color:var(--ink);background:#fff;border:1.5px solid #e0d9c8;}
   .tab.active{background:var(--yellow);border-color:var(--yellow);color:var(--steel);}
 
-  section.grp{padding:54px 0 10px;}
+  section.grp{padding:50px 0 6px;}
   .grp h2{font-size:28px;text-transform:uppercase;}
   .grp h2 .y{color:var(--wood);}
   .grp .sub{color:#54584a;margin:6px 0 4px;}
+
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px;}
   .card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #ece5d6;box-shadow:0 8px 24px rgba(35,49,28,.10);display:flex;flex-direction:column;}
-  .card .ph{height:170px;background-size:cover;background-position:center;position:relative;}
+  .card .ph{height:180px;background-size:cover;background-position:center;position:relative;}
   .badge{position:absolute;top:12px;left:12px;background:var(--yellow);color:var(--steel);font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px;}
   .badge.q{background:var(--wood);color:#fff;}
-  .card .b{padding:18px;display:flex;flex-direction:column;flex:1;}
-  .card h3{font-size:20px;}
-  .card .pax{font-size:12px;color:var(--leaf);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:3px 0 8px;}
-  .card .desc{font-size:14px;color:#5b5e50;flex:1;}
-  .card .price{font-weight:800;font-size:22px;color:var(--wood);margin:11px 0;}
-  .card .price small{font-size:12px;color:#9b9794;font-weight:500;}
-  .card .price.q{font-size:17px;}
+  .card .b{padding:20px;display:flex;flex-direction:column;flex:1;}
+  .card h3{font-size:22px;}
+  .card .tag{font-size:12.5px;color:var(--leaf);font-weight:700;margin:3px 0 12px;}
+  .dishes{list-style:none;flex:1;}
+  .dishes li{font-size:14.5px;color:#3f4338;padding:5px 0 5px 20px;position:relative;border-bottom:1px dashed #ece5d6;}
+  .dishes li:before{content:"🍃";position:absolute;left:0;font-size:11px;top:7px;}
+  .dishes li.base{color:var(--muted);font-style:italic;}
+  .dishes li.base:before{content:"•";color:var(--muted);left:4px;}
+  .card .price{font-weight:800;font-size:18px;color:var(--wood);margin:14px 0 12px;}
+  .card .price small{font-size:12.5px;color:#9b9794;font-weight:500;display:block;}
   .card .btn-y{width:100%;justify-content:center;}
   @media(max-width:880px){.cards{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:600px){.cards{grid-template-columns:1fr;}}
 
-  .note{background:#ece7d8;border-radius:12px;padding:18px 22px;margin:40px 0;color:#54584a;font-size:14.5px;}
-  .cta{background:var(--yellow);text-align:center;padding:48px 24px;margin-top:30px;}
+  .note{background:#ece7d8;border-radius:12px;padding:18px 22px;margin:38px 0;color:#54584a;font-size:14.5px;}
+  .liblock{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}
+  .li{background:#fff;border:1px solid #ece5d6;border-radius:14px;padding:24px;box-shadow:0 8px 24px rgba(35,49,28,.08);}
+  .li h3{font-size:20px;} .li p{font-size:14.5px;color:#5b5e50;margin:8px 0 14px;}
+  @media(max-width:600px){.liblock{grid-template-columns:1fr;}}
+
+  .cta{background:var(--yellow);text-align:center;padding:48px 24px;margin-top:36px;}
   .cta h2{color:var(--steel);text-transform:uppercase;}
   .cta p{color:#3a3a30;margin:10px 0 20px;}
   footer{background:var(--steel);color:#bdbfb2;padding:30px 0;text-align:center;font-size:14px;}
-  .imgnote{font-size:12px;color:var(--wood);font-style:italic;text-align:center;margin-top:24px;}
+  footer a{color:#cdd8b6;}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap in">
-    <div class="logo"><span class="the">the</span><span class="nm">VẠN <b>THỊNH</b></span><span class="rs">REST STOP</span></div>
+    <a href="index.html" class="logo">
+      <img src="assets/real/logo.png" onerror="this.style.display='none'" alt="Vạn Thịnh">
+      <span class="txt"><span class="the">the</span><span class="nm">VẠN <b>THỊNH</b></span><span class="rs">REST STOP</span></span>
+    </a>
     <a href="index.html" class="back">← Về trang chủ</a>
   </div>
 </header>
@@ -80,91 +93,95 @@
 <div class="head">
   <div class="wrap">
     <div class="eyebrow">Thực đơn</div>
-    <h1>Set menu theo nhóm khách</h1>
-    <p>Chọn theo loại khách — đoàn lớn nhiều lựa chọn, khách lẻ gọn nhẹ. Giá set phổ biến công khai; đoàn lớn/tùy chỉnh báo giá tận nơi.</p>
+    <h1>5 Set Mâm Vạn Thịnh</h1>
+    <p>Set mâm sẵn cho đoàn — từ cơ bản đến thịnh soạn. Mỗi set đủ món mặn, canh/lẩu, cơm, tráng miệng &amp; trà đá. Đoàn lớn, ăn chay, tiệc — báo giá tận nơi.</p>
   </div>
 </div>
 
 <div class="tabs">
   <div class="in">
-    <a href="#doan-lon" class="tab active">Đoàn lớn</a>
-    <a href="#doan-nho" class="tab">Đoàn nhỏ</a>
-    <a href="#khach-le" class="tab">Khách lẻ</a>
-    <a href="#chay-tiec" class="tab">Chay &amp; Tiệc</a>
+    <a href="#set-mam" class="tab active">5 Set Mâm</a>
+    <a href="#khac" class="tab">Khách lẻ · Chay · Tiệc</a>
   </div>
 </div>
 
 <div class="wrap">
 
-  <!-- ĐOÀN LỚN -->
-  <section class="grp" id="doan-lon">
-    <h2>Đoàn lớn <span class="y">(từ 50 khách)</span></h2>
-    <p class="sub">Phục vụ nhanh, bàn xếp sẵn giữa vườn. Báo giá theo số lượng &amp; ngân sách.</p>
+  <!-- 5 SET MÂM -->
+  <section class="grp" id="set-mam">
+    <h2>Set Mâm <span class="y">cho đoàn</span></h2>
+    <p class="sub">Giá đang cập nhật — bấm "Đặt set này" hoặc gọi 0355 829 839 để báo giá nhanh.</p>
     <div class="cards">
-      <div class="card"><div class="ph" style="background-image:url('assets/real/food.jpg')"><span class="badge">Bán chạy</span></div>
-        <div class="b"><h3>Set Đoàn 6 món</h3><div class="pax">Mâm 10 khách · 6 món + canh + cơm</div>
-          <div class="desc">Cá kho tộ, gà hấp, tôm rang, rau xào, canh chua, tráng miệng (món mẫu).</div>
-          <div class="price">— <small>đ/khách · chờ giá</small></div><a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div></div>
-      <div class="card"><div class="ph" style="background-image:url('assets/food-hotpot.jpg')"><span class="badge">Lẩu</span></div>
-        <div class="b"><h3>Set Lẩu Đoàn</h3><div class="pax">Mâm 10 khách · lẩu + 7 món</div>
-          <div class="desc">Lẩu cá linh bông điên điển, bò lá lốt, gỏi… (món mẫu).</div>
-          <div class="price">— <small>đ/khách · chờ giá</small></div><a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div></div>
-      <div class="card"><div class="ph" style="background-image:url('assets/food-wood.jpg')"><span class="badge q">Tùy chỉnh</span></div>
-        <div class="b"><h3>Set Thiết Kế Riêng</h3><div class="pax">Theo ngân sách đoàn</div>
-          <div class="desc">Tụi em lên thực đơn theo số khách, khẩu vị, ngân sách của đoàn.</div>
-          <div class="price q">Liên hệ báo giá</div><a class="btn btn-y" href="index.html#dat-doan">Nhận tư vấn</a></div></div>
+
+      <div class="card">
+        <div class="ph" style="background-image:url('assets/real/menu/set1.jpg')" data-fallback="assets/real/food.jpg"><span class="badge">Set 1 · Cơ bản</span></div>
+        <div class="b"><h3>Set 1</h3><div class="tag">Đầy đủ, hợp túi tiền</div>
+          <ul class="dishes">
+            <li>Sườn ram mặn</li><li>Bò xào rau muống</li><li>Trứng chiên củ hành</li>
+            <li>Canh khổ qua cá thác lác</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
+          </ul>
+          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
+      </div>
+
+      <div class="card">
+        <div class="ph" style="background-image:url('assets/real/menu/set2.jpg')" data-fallback="assets/real/food.jpg"><span class="badge">Set 2</span></div>
+        <div class="b"><h3>Set 2</h3><div class="tag">Thêm món, có canh chua</div>
+          <ul class="dishes">
+            <li>Cá hú kho tộ</li><li>Gà kho gừng</li><li>Đậu que xào thịt</li><li>Khổ qua xào trứng</li>
+            <li>Canh chua cá hú</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
+          </ul>
+          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
+      </div>
+
+      <div class="card">
+        <div class="ph" style="background-image:url('assets/real/menu/set3.jpg')" data-fallback="assets/food-hotpot.jpg"><span class="badge">Set 3 · Có lẩu</span></div>
+        <div class="b"><h3>Set 3</h3><div class="tag">Có gỏi khai vị + lẩu cá hồi</div>
+          <ul class="dishes">
+            <li>Gỏi ngó sen tôm thịt</li><li>Cá hú kho tộ</li><li>Sườn ram mặn</li><li>Bò xào nấm bào ngư</li>
+            <li>Lẩu đầu cá hồi</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
+          </ul>
+          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
+      </div>
+
+      <div class="card">
+        <div class="ph" style="background-image:url('assets/real/menu/set4.jpg')" data-fallback="assets/food-hotpot.jpg"><span class="badge">Set 4 · Có lẩu</span></div>
+        <div class="b"><h3>Set 4</h3><div class="tag">Cá diêu hồng hấp + lẩu gà lá giang</div>
+          <ul class="dishes">
+            <li>Bò lá lốt</li><li>Sườn ram mặn</li><li>Bò xào nấm bào ngư</li><li>Cá diêu hồng hấp Hong Kong</li>
+            <li>Lẩu gà lá giang</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
+          </ul>
+          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
+      </div>
+
+      <div class="card">
+        <div class="ph" style="background-image:url('assets/real/menu/set5.jpg')" data-fallback="assets/food-wood.jpg"><span class="badge q">Set 5 · Thịnh soạn</span></div>
+        <div class="b"><h3>Set 5</h3><div class="tag">Đầy đủ nhất — chả giò, tôm rim, lẩu cá ngát</div>
+          <ul class="dishes">
+            <li>Chả giò HongKong</li><li>Gà hấp lá chanh</li><li>Tôm rim</li><li>Sườn non kho tiêu</li>
+            <li>Bò xào nấm bào ngư</li><li>Lẩu chua cá ngát</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
+          </ul>
+          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ĐOÀN NHỎ -->
-  <section class="grp" id="doan-nho">
-    <h2>Đoàn nhỏ <span class="y">(10–50 khách)</span></h2>
-    <p class="sub">Gia đình, nhóm bạn, công ty nhỏ — set vừa đủ, đa dạng món.</p>
-    <div class="cards">
-      <div class="card"><div class="ph" style="background-image:url('assets/food-set.jpg')"><span class="badge">Phổ biến</span></div>
-        <div class="b"><h3>Set Miệt Vườn</h3><div class="pax">Mâm 6 khách · 6 món</div>
-          <div class="desc">Đậm chất Tây Nam Bộ, hợp gia đình &amp; nhóm bạn (món mẫu).</div>
-          <div class="price">— <small>đ/khách · chờ giá</small></div><a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div></div>
-      <div class="card"><div class="ph" style="background-image:url('assets/food-viet.jpg')"><span class="badge">Tiết kiệm</span></div>
-        <div class="b"><h3>Set Cơm Phần</h3><div class="pax">Mâm 4–6 khách · 4 món + canh</div>
-          <div class="desc">Gọn, nhanh, no — hợp dừng chân ăn trưa (món mẫu).</div>
-          <div class="price">— <small>đ/khách · chờ giá</small></div><a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div></div>
+  <!-- KHÁCH LẺ / CHAY / TIỆC -->
+  <section class="grp" id="khac">
+    <h2>Khách lẻ · Chay · <span class="y">Tiệc</span></h2>
+    <p class="sub">Ngoài 5 set mâm, Vạn Thịnh còn phục vụ:</p>
+    <div class="liblock">
+      <div class="li"><h3>🍜 Khách lẻ — ăn sáng / trưa</h3><p>Bún, cơm phần, cà phê, nước mát — gọi món lẻ tại quầy, ghé nhanh dọc đường.</p><a class="btn btn-dark" href="index.html#dat-doan">Liên hệ</a></div>
+      <div class="li"><h3>🌿 Set Chay &amp; Tiệc / Sự kiện</h3><p>Set chay cho đoàn hành hương; tiệc sinh nhật, kỷ niệm, sự kiện công ty tổ chức giữa vườn.</p><a class="btn btn-dark" href="index.html#dat-doan">Nhận tư vấn</a></div>
     </div>
   </section>
 
-  <!-- KHÁCH LẺ -->
-  <section class="grp" id="khach-le">
-    <h2>Khách lẻ <span class="y">— ăn sáng / trưa</span></h2>
-    <p class="sub">Ghé nhanh dọc đường: bún, cơm, cà phê. Gọi món lẻ tại quầy.</p>
-    <div class="cards">
-      <div class="card"><div class="ph" style="background-image:url('assets/real/food.jpg')"><span class="badge">Đặc sản</span></div>
-        <div class="b"><h3>Bún / Cơm miền Tây</h3><div class="pax">Phần cá nhân</div>
-          <div class="desc">Tô đầy đặn, rau sống tươi, nước chấm nhà làm (món mẫu).</div>
-          <div class="price">— <small>đ/phần · chờ giá</small></div></div></div>
-      <div class="card"><div class="ph" style="background-image:url('assets/string-lights.jpg')"><span class="badge">Giải khát</span></div>
-        <div class="b"><h3>Cà phê / Nước mát</h3><div class="pax">Quầy takeaway</div>
-          <div class="desc">Cà phê phin, nước ép, trà — mang đi hoặc ngồi vườn.</div>
-          <div class="price">— <small>đ · chờ giá</small></div></div></div>
-    </div>
-  </section>
-
-  <!-- CHAY & TIỆC -->
-  <section class="grp" id="chay-tiec">
-    <h2>Chay &amp; <span class="y">Tiệc / Sự kiện</span></h2>
-    <p class="sub">Set chay cho đoàn hành hương; tiệc sinh nhật, kỷ niệm, sự kiện công ty giữa vườn.</p>
-    <div class="cards">
-      <div class="card"><div class="ph" style="background-image:url('assets/garden-space.jpg')"><span class="badge q">Chay</span></div>
-        <div class="b"><h3>Set Chay Đoàn</h3><div class="pax">Theo số khách</div>
-          <div class="desc">Thực đơn chay thanh đạm cho đoàn hành hương (món mẫu).</div>
-          <div class="price q">Liên hệ báo giá</div><a class="btn btn-y" href="index.html#dat-doan">Nhận tư vấn</a></div></div>
-      <div class="card"><div class="ph" style="background-image:url('assets/garden-dining.jpg')"><span class="badge q">Sự kiện</span></div>
-        <div class="b"><h3>Tiệc giữa vườn</h3><div class="pax">Sinh nhật · kỷ niệm · công ty</div>
-          <div class="desc">Không gian vườn, set tiệc + trang trí theo yêu cầu.</div>
-          <div class="price q">Liên hệ báo giá</div><a class="btn btn-y" href="index.html#dat-doan">Nhận tư vấn</a></div></div>
-    </div>
-  </section>
-
-  <div class="note">★ Đây là <b>khung trang demo</b> — tên set, món, giá, ảnh đang là <b>mẫu</b>. Chờ CEO gửi danh sách set menu thật + ảnh món để thay vào.</div>
+  <div class="note">★ Món lấy từ bảng set menu thật của Vạn Thịnh. <b>Giá + ảnh từng set</b> đang chờ cập nhật — gửi em là điền lên ngay.</div>
 </div>
 
 <div class="cta">
@@ -176,11 +193,16 @@
 </div>
 
 <footer>
-  <span class="script" style="color:var(--yellow)">the</span> VẠN THỊNH REST STOP · 71 Tân Túc, Xã Tân Nhựt, TP.HCM · 0355 829 839
+  <span class="script" style="color:var(--yellow)">the</span> VẠN THỊNH REST STOP · Số 71 Tân Túc, Khu phố 6, Xã Tân Nhựt, TP.HCM · 0355 829 839 · <a href="mailto:kinhdoanh@vanthinh.vn">kinhdoanh@vanthinh.vn</a>
 </footer>
 
 <script>
-  // tab active on click + scroll spy nhẹ
+  // fallback ảnh nền cho .ph nếu file set chưa có
+  document.querySelectorAll('.ph[data-fallback]').forEach(function(ph){
+    var m=ph.style.backgroundImage.match(/url\(["']?(.+?)["']?\)/); if(!m) return;
+    var img=new Image(); img.onload=function(){}; img.onerror=function(){ ph.style.backgroundImage="url('"+ph.getAttribute('data-fallback')+"')"; }; img.src=m[1];
+  });
+  // tabs
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){x.classList.remove('active');}); t.classList.add('active'); }); });
 </script>
