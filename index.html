@@ -24,7 +24,7 @@
   .btn-y{background:var(--yellow);color:var(--steel);border-radius:12px;box-shadow:0 8px 22px rgba(245,197,24,.42);} .btn-y:hover{background:#e3b50c;transform:translateY(-2px);box-shadow:0 12px 28px rgba(245,197,24,.5);}
   .btn-ghost{border:2px solid #fff;color:#fff;background:transparent;} .btn-ghost:hover{background:rgba(255,255,255,.14);}
   .btn-dark{background:var(--steel);color:var(--yellow);} .btn-dark:hover{background:#000;}
-  .eyebrow{display:inline-block;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:14px;color:var(--leaf);margin-bottom:14px;}
+  .eyebrow{display:inline-block;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:14px;color:var(--leaf);margin-bottom:20px;}
 
   /* reveal */
   .rv{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1);}
@@ -72,7 +72,7 @@
   .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
   .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(28,30,26,.22) 0%,rgba(28,30,26,.42) 50%,rgba(28,30,26,.90) 100%);}
   .hero .wrap{position:relative;z-index:2;padding-bottom:76px;padding-top:120px;}
-  .hero .eyebrow{color:#cfe0b0;}
+  .hero .eyebrow{color:var(--yellow);text-shadow:0 1px 8px rgba(0,0,0,.6);}
   .hero h1{font-size:clamp(34px,6vw,68px);max-width:16ch;line-height:1.18;text-shadow:0 2px 30px rgba(0,0,0,.45);}
   .hero h1 .y{color:var(--yellow);}
   .hero p.sub{margin-top:18px;font-size:clamp(16px,1.9vw,20px);max-width:48ch;opacity:.95;text-shadow:0 1px 14px rgba(0,0,0,.55);}
@@ -103,6 +103,9 @@
   .stars{color:#F5B301;font-size:22px;letter-spacing:2px;}
   .grev{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #d8d0bd;border-radius:10px;padding:12px 18px;font-weight:700;color:var(--ink);margin-top:14px;box-shadow:0 4px 14px rgba(0,0,0,.06);}
   .grev b{color:#4285F4;}
+  .dstats{display:flex;gap:30px;margin:18px 0 6px;flex-wrap:wrap;}
+  .dstats .s b{display:block;font-weight:800;font-size:27px;color:var(--wood);line-height:1;}
+  .dstats .s span{font-size:13px;color:#5b5e50;}
   @media(max-width:760px){.doan-grid{grid-template-columns:1fr;gap:24px;}}
 
   section.blk{padding:84px 0;}
@@ -229,7 +232,7 @@
   <div class="wrap">
     <div class="eyebrow" data-en="Rest stop · Highway to the Mekong">Trạm dừng chân · Cao tốc về miền Tây</div>
     <h1 data-en="Stop & dine —<br>inside <span class='y'>a green garden</span>">Dừng chân, ăn ngon —<br>giữa <span class="y">một khu vườn</span></h1>
-    <p class="sub" data-en="Rustic containers, lush trees, koi pond, string lights. 700 seats, groups of 400–500 with room to breathe.">Container mộc, cây xanh rợp bóng, hồ koi, đèn dây. 700 chỗ, tiếp đoàn 400–500 khách mà vẫn thoáng.</p>
+    <p class="sub" data-en="Rustic containers • Lush trees • Koi pond • String lights • 700 seats • Groups of 400–500">Container mộc • Cây xanh rợp bóng • Hồ koi • Đèn dây • 700 chỗ • Tiếp đoàn 400–500 khách</p>
     <div class="cta-row">
       <a href="#dat-doan" class="btn btn-y" data-en="Book a group">Đặt đoàn</a>
       <a href="tel:0355829839" class="btn btn-ghost">📞 0355 829 839</a>
@@ -266,7 +269,7 @@
     <div class="center rv">
       <div class="eyebrow" data-en="The space">Không gian</div>
       <h2 class="sec" data-en="Dine <span class='y'>in the garden</span>">Ngồi ăn <span class="y">giữa vườn</span></h2>
-      <p class="lead" data-en="Not a concrete stop. Van Thinh is a real garden — trees through the space, a koi pond, ferns, warm string lights. Big groups still feel airy.">Không phải trạm bê tông. Vạn Thịnh là vườn thật — cây mọc xuyên nhà, hồ koi, dương xỉ, đèn dây ấm. Đoàn đông vẫn thoáng.</p>
+      <p class="lead" data-en="Not a concrete stop. Van Thinh is a real garden — a koi pond, lush shade trees and wide-open space. A place where big groups still feel at home.">Không phải trạm bê tông. Vạn Thịnh là vườn thật — hồ koi, cây xanh rợp bóng và không gian rộng rãi. Nơi đoàn đông vẫn cảm thấy thoải mái như ở nhà.</p>
     </div>
     <div class="imgrid rv">
       <img src="assets/wood-dining.jpg" alt="Ăn giữa vườn" data-lb>
@@ -288,7 +291,7 @@
     </div>
     <div class="explore">
       <div class="ex rv"><div class="ic">🗺️</div><h3 data-en="Floor plan">Sơ đồ mặt bằng</h3><p data-en="Seating zones, walkways, restrooms, parking — see where your group sits.">Các khu ngồi, lối đi, nhà vệ sinh, bãi xe — nhìn là hình dung được đoàn ngồi đâu.</p></div>
-      <div class="ex rv"><div class="ic">👥</div><h3 data-en="Zone capacity">Sức chứa từng khu</h3><p data-en="700 seats in zones — groups of 400–500 stay roomy.">700 chỗ, chia khu — tiếp đoàn 400–500 khách vẫn rộng, không chen.</p></div>
+      <div class="ex rv"><div class="ic">👥</div><h3 data-en="Zone capacity">Sức chứa từng khu</h3><p data-en="<b style='color:var(--yellow)'>700</b> seats in zones — groups of <b style='color:var(--yellow)'>400–500</b> stay roomy."><b style="color:var(--yellow)">700</b> chỗ, chia khu — tiếp đoàn <b style="color:var(--yellow)">400–500</b> khách vẫn rộng, không chen.</p></div>
       <div class="ex rv"><div class="ic">🚌</div><h3 data-en="Coach parking">Bãi xe khách</h3><p data-en="Large lot, easy in/out — drivers relax.">Chỗ đậu xe lớn, ra vào dễ — tài xế đoàn không phải lo.</p></div>
     </div>
   </div>
@@ -365,7 +368,12 @@
       <img src="assets/real/doan.jpg" onerror="this.onerror=null;this.src='assets/garden-dining.jpg'" alt="Đoàn khách tại Vạn Thịnh">
       <div>
         <div class="stars">★★★★★</div>
-        <p class="lead" style="margin-top:8px" data-en="Hundreds of tour groups have stopped, dined and taken photos in the garden. Read real reviews on Google Maps.">Hàng trăm đoàn tour đã dừng chân, ăn uống và chụp hình giữa vườn. Đánh giá thật — anh/chị đọc trực tiếp trên Google Maps.</p>
+        <p class="lead" style="margin-top:8px" data-en="Hundreds of tour groups have stopped, dined and taken photos in the garden. Read real reviews on Google Maps.">Nhiều đoàn tour đã dừng chân, ăn uống và chụp hình giữa vườn. Đánh giá thật — anh/chị đọc trực tiếp trên Google Maps.</p>
+        <div class="dstats">
+          <div class="s"><b>700+</b><span data-en="guests at once">khách phục vụ cùng lúc</span></div>
+          <div class="s"><b>3.500m²</b><span data-en="green garden">khuôn viên vườn</span></div>
+          <div class="s"><b>HTV</b><span data-en="featured · Made by Vietnam">đưa tin · Made by Vietnam</span></div>
+        </div>
         <a href="https://maps.app.goo.gl/1VCux6EfDfde8iRc8" target="_blank" rel="noopener" class="grev">
           <b>G</b><span data-en="Read reviews on Google Maps ★">Xem đánh giá trên Google Maps ★</span>
         </a>
