@@ -7,7 +7,7 @@
 <title>the Vạn Thịnh Rest Stop — UI tạm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=Montserrat:wght@600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --jungle:#23311C;--leaf:#7A9A55;--yellow:#F5C518;--wood:#9C6B3F;
@@ -42,20 +42,22 @@
   /* NAV */
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;}
   header.nav .nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1140px;margin:0 auto;}
-  header.nav.scrolled{background:rgba(244,239,228,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.06);}
-  header.nav .logo .nm{color:#fff;} header.nav .logo .nm .b{color:var(--yellow);}
-  header.nav.scrolled .logo .nm{color:var(--ink);} header.nav.scrolled .logo .nm .b{color:var(--wood);}
-  header.nav.scrolled .nav-links a{color:var(--ink);}
+  header.nav.scrolled{background:rgba(28,30,26,.94);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(0,0,0,.28);}
   .nav-links{display:flex;gap:24px;font-size:14.5px;font-weight:600;}
   .nav-links a{color:#fff;opacity:.92;}
   .nav-links a:hover{color:var(--yellow);opacity:1;}
   .nav-right{display:flex;align-items:center;gap:14px;}
-  .lang{font-size:12.5px;font-weight:700;cursor:pointer;color:#fff;background:rgba(255,255,255,.16);padding:6px 10px;border-radius:6px;}
-  header.nav.scrolled .lang{color:var(--ink);background:rgba(0,0,0,.06);}
+  .lang{font-size:12.5px;font-weight:700;cursor:pointer;color:#fff;background:rgba(255,255,255,.18);padding:6px 10px;border-radius:6px;}
   .nav-cta{background:var(--yellow);color:var(--steel);padding:10px 18px;border-radius:8px;font-weight:700;font-size:14px;}
   .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
   .burger span{width:24px;height:2.5px;background:#fff;border-radius:2px;transition:.2s;}
-  header.nav.scrolled .burger span{background:var(--ink);}
+
+  /* LOGO chữ: Montserrat + "the" viết tay */
+  .brand{display:inline-flex;flex-direction:column;text-decoration:none;line-height:.92;}
+  .brand .b-the{font-family:'Dancing Script',cursive;font-weight:700;font-size:23px;color:#fff;transform:rotate(-6deg);align-self:flex-start;margin:0 0 -4px 6px;text-shadow:0 1px 5px rgba(0,0,0,.35);}
+  .brand .b-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:23px;letter-spacing:1.5px;color:var(--yellow);}
+  .brand .b-sub{font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.5px;color:#fff;text-align:right;margin-top:3px;}
+  @media(max-width:760px){.brand .b-name{font-size:20px;} .brand .b-the{font-size:20px;} .brand .b-sub{font-size:10px;}}
   @media(max-width:840px){
     .nav-links{position:fixed;top:0;right:-100%;height:100vh;width:74%;max-width:320px;background:var(--jungle);flex-direction:column;padding:90px 30px;gap:8px;transition:.32s;box-shadow:-10px 0 40px rgba(0,0,0,.3);}
     .nav-links.open{right:0;}
@@ -199,7 +201,11 @@
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a href="#" class="logo"><img class="logo-img" src="assets/real/logo-web.png" alt="the Vạn Thịnh Rest Stop"></a>
+    <a href="#" class="brand" aria-label="the Vạn Thịnh Rest Stop">
+      <span class="b-the">the</span>
+      <span class="b-name">VẠN THỊNH</span>
+      <span class="b-sub">Rest Stop</span>
+    </a>
     <nav class="nav-links" id="navlinks">
       <a href="#khong-gian" data-en="Space">Không gian</a>
       <a href="#kham-pha" data-en="Capacity">Sức chứa</a>

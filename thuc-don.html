@@ -7,7 +7,7 @@
 <title>Thực đơn — the Vạn Thịnh Rest Stop</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Caveat:wght@700&family=Montserrat:wght@600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{--jungle:#23311C;--leaf:#7A9A55;--yellow:#F5C518;--wood:#9C6B3F;--steel:#1C1E1A;--paper:#F4EFE4;--ink:#2A2E24;--muted:#6f7263;}
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -24,7 +24,10 @@
   header.top{background:var(--jungle);color:#fff;padding:12px 0;position:sticky;top:0;z-index:20;}
   header.top .in{display:flex;align-items:center;justify-content:space-between;}
   .logo{display:flex;align-items:center;gap:10px;}
-  .logo img{height:42px;width:auto;display:block;}
+  .brand{display:inline-flex;flex-direction:column;text-decoration:none;line-height:.92;}
+  .brand .b-the{font-family:'Dancing Script',cursive;font-weight:700;font-size:22px;color:#fff;transform:rotate(-6deg);align-self:flex-start;margin:0 0 -4px 6px;}
+  .brand .b-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:21px;letter-spacing:1.5px;color:var(--yellow);}
+  .brand .b-sub{font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.5px;color:#fff;text-align:right;margin-top:3px;}
   .logo .txt{display:flex;flex-direction:column;line-height:.82;}
   .logo .the{font-family:'Caveat';color:var(--yellow);font-size:17px;transform:rotate(-6deg);margin-left:2px;}
   .logo .nm{font-weight:800;font-size:18px;} .logo .nm b{color:var(--yellow);}
@@ -84,8 +87,10 @@
 
 <header class="top">
   <div class="wrap in">
-    <a href="index.html" class="logo">
-      <img src="assets/real/logo-web.png" alt="the Vạn Thịnh Rest Stop">
+    <a href="index.html" class="brand" aria-label="the Vạn Thịnh Rest Stop">
+      <span class="b-the">the</span>
+      <span class="b-name">VẠN THỊNH</span>
+      <span class="b-sub">Rest Stop</span>
     </a>
     <a href="index.html" class="back">← Về trang chủ</a>
   </div>
