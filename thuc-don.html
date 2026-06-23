@@ -51,6 +51,8 @@
   .card .ph{height:180px;background-size:cover;background-position:center;position:relative;}
   .badge{position:absolute;top:12px;left:12px;background:var(--yellow);color:var(--steel);font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px;}
   .badge.q{background:var(--wood);color:#fff;}
+  .pricetag{position:absolute;top:12px;right:12px;background:var(--steel);color:var(--yellow);font-weight:800;font-size:14px;padding:6px 11px;border-radius:8px;}
+  .pricetag small{font-weight:500;font-size:10.5px;color:#cdd8b6;}
   .card .b{padding:20px;display:flex;flex-direction:column;flex:1;}
   .card h3{font-size:22px;}
   .card .tag{font-size:12.5px;color:var(--leaf);font-weight:700;margin:3px 0 12px;}
@@ -59,8 +61,8 @@
   .dishes li:before{content:"🍃";position:absolute;left:0;font-size:11px;top:7px;}
   .dishes li.base{color:var(--muted);font-style:italic;}
   .dishes li.base:before{content:"•";color:var(--muted);left:4px;}
-  .card .price{font-weight:800;font-size:18px;color:var(--wood);margin:14px 0 12px;}
-  .card .price small{font-size:12.5px;color:#9b9794;font-weight:500;display:block;}
+  .card .price{font-weight:800;font-size:24px;color:var(--wood);margin:14px 0 12px;}
+  .card .price small{font-size:13px;color:#9b9794;font-weight:500;}
   .card .btn-y{width:100%;justify-content:center;}
   @media(max-width:880px){.cards{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:600px){.cards{grid-template-columns:1fr;}}
@@ -94,7 +96,7 @@
   <div class="wrap">
     <div class="eyebrow">Thực đơn</div>
     <h1>5 Set Mâm Vạn Thịnh</h1>
-    <p>Set mâm sẵn cho đoàn — từ cơ bản đến thịnh soạn. Mỗi set đủ món mặn, canh/lẩu, cơm, tráng miệng &amp; trà đá. Đoàn lớn, ăn chay, tiệc — báo giá tận nơi.</p>
+    <p>Set mâm sẵn cho đoàn — từ cơ bản đến thịnh soạn. Mỗi set đủ món mặn, canh/lẩu, cơm, tráng miệng &amp; trà đá. Giá tính theo khách (pax).</p>
   </div>
 </div>
 
@@ -110,61 +112,61 @@
   <!-- 5 SET MÂM -->
   <section class="grp" id="set-mam">
     <h2>Set Mâm <span class="y">cho đoàn</span></h2>
-    <p class="sub">Giá đang cập nhật — bấm "Đặt set này" hoặc gọi 0355 829 839 để báo giá nhanh.</p>
+    <p class="sub">Giá đã gồm món mặn, canh/lẩu, cơm, tráng miệng &amp; trà đá. Đặt trước để bếp chuẩn bị cho đoàn.</p>
     <div class="cards">
 
       <div class="card">
-        <div class="ph" style="background-image:url('assets/real/menu/set1.jpg')" data-fallback="assets/real/food.jpg"><span class="badge">Set 1 · Cơ bản</span></div>
+        <div class="ph" style="background-image:url('assets/real/menu/set1.jpg')" data-fallback="assets/real/food.jpg"><span class="badge">Set 1 · Cơ bản</span><span class="pricetag">130.000đ<small>/khách</small></span></div>
         <div class="b"><h3>Set 1</h3><div class="tag">Đầy đủ, hợp túi tiền</div>
           <ul class="dishes">
             <li>Sườn ram mặn</li><li>Bò xào rau muống</li><li>Trứng chiên củ hành</li>
             <li>Canh khổ qua cá thác lác</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
           </ul>
-          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <div class="price">130.000đ <small>/khách</small></div>
           <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
       </div>
 
       <div class="card">
-        <div class="ph" style="background-image:url('assets/real/menu/set2.jpg')" data-fallback="assets/real/food.jpg"><span class="badge">Set 2</span></div>
+        <div class="ph" style="background-image:url('assets/real/menu/set2.jpg')" data-fallback="assets/real/food.jpg"><span class="badge">Set 2</span><span class="pricetag">160.000đ<small>/khách</small></span></div>
         <div class="b"><h3>Set 2</h3><div class="tag">Thêm món, có canh chua</div>
           <ul class="dishes">
             <li>Cá hú kho tộ</li><li>Gà kho gừng</li><li>Đậu que xào thịt</li><li>Khổ qua xào trứng</li>
             <li>Canh chua cá hú</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
           </ul>
-          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <div class="price">160.000đ <small>/khách</small></div>
           <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
       </div>
 
       <div class="card">
-        <div class="ph" style="background-image:url('assets/real/menu/set3.jpg')" data-fallback="assets/food-hotpot.jpg"><span class="badge">Set 3 · Có lẩu</span></div>
+        <div class="ph" style="background-image:url('assets/real/menu/set3.jpg')" data-fallback="assets/food-hotpot.jpg"><span class="badge">Set 3 · Có lẩu</span><span class="pricetag">170.000đ<small>/khách</small></span></div>
         <div class="b"><h3>Set 3</h3><div class="tag">Có gỏi khai vị + lẩu cá hồi</div>
           <ul class="dishes">
             <li>Gỏi ngó sen tôm thịt</li><li>Cá hú kho tộ</li><li>Sườn ram mặn</li><li>Bò xào nấm bào ngư</li>
             <li>Lẩu đầu cá hồi</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
           </ul>
-          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <div class="price">170.000đ <small>/khách</small></div>
           <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
       </div>
 
       <div class="card">
-        <div class="ph" style="background-image:url('assets/real/menu/set4.jpg')" data-fallback="assets/food-hotpot.jpg"><span class="badge">Set 4 · Có lẩu</span></div>
+        <div class="ph" style="background-image:url('assets/real/menu/set4.jpg')" data-fallback="assets/food-hotpot.jpg"><span class="badge">Set 4 · Có lẩu</span><span class="pricetag">195.000đ<small>/khách</small></span></div>
         <div class="b"><h3>Set 4</h3><div class="tag">Cá diêu hồng hấp + lẩu gà lá giang</div>
           <ul class="dishes">
             <li>Bò lá lốt</li><li>Sườn ram mặn</li><li>Bò xào nấm bào ngư</li><li>Cá diêu hồng hấp Hong Kong</li>
             <li>Lẩu gà lá giang</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
           </ul>
-          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <div class="price">195.000đ <small>/khách</small></div>
           <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
       </div>
 
       <div class="card">
-        <div class="ph" style="background-image:url('assets/real/menu/set5.jpg')" data-fallback="assets/food-wood.jpg"><span class="badge q">Set 5 · Thịnh soạn</span></div>
+        <div class="ph" style="background-image:url('assets/real/menu/set5.jpg')" data-fallback="assets/food-wood.jpg"><span class="badge q">Set 5 · Thịnh soạn</span><span class="pricetag">215.000đ<small>/khách</small></span></div>
         <div class="b"><h3>Set 5</h3><div class="tag">Đầy đủ nhất — chả giò, tôm rim, lẩu cá ngát</div>
           <ul class="dishes">
             <li>Chả giò HongKong</li><li>Gà hấp lá chanh</li><li>Tôm rim</li><li>Sườn non kho tiêu</li>
             <li>Bò xào nấm bào ngư</li><li>Lẩu chua cá ngát</li><li class="base">Cơm trắng</li><li class="base">Tráng miệng, trà đá</li>
           </ul>
-          <div class="price">Liên hệ báo giá<small>giá đang cập nhật</small></div>
+          <div class="price">215.000đ <small>/khách</small></div>
           <a class="btn btn-y" href="index.html#dat-doan">Đặt set này</a></div>
       </div>
 
@@ -181,7 +183,7 @@
     </div>
   </section>
 
-  <div class="note">★ Món lấy từ bảng set menu thật của Vạn Thịnh. <b>Giá + ảnh từng set</b> đang chờ cập nhật — gửi em là điền lên ngay.</div>
+  <div class="note">★ Set menu &amp; giá lấy từ bảng thật của Vạn Thịnh. <b>Ảnh từng set</b> đang chờ cập nhật — gửi em là thay lên ngay.</div>
 </div>
 
 <div class="cta">
@@ -197,12 +199,10 @@
 </footer>
 
 <script>
-  // fallback ảnh nền cho .ph nếu file set chưa có
   document.querySelectorAll('.ph[data-fallback]').forEach(function(ph){
     var m=ph.style.backgroundImage.match(/url\(["']?(.+?)["']?\)/); if(!m) return;
-    var img=new Image(); img.onload=function(){}; img.onerror=function(){ ph.style.backgroundImage="url('"+ph.getAttribute('data-fallback')+"')"; }; img.src=m[1];
+    var img=new Image(); img.onerror=function(){ ph.style.backgroundImage="url('"+ph.getAttribute('data-fallback')+"')"; }; img.src=m[1];
   });
-  // tabs
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){x.classList.remove('active');}); t.classList.add('active'); }); });
 </script>
