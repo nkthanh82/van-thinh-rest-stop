@@ -32,6 +32,8 @@
 
   /* LOGO */
   .logo{display:flex;flex-direction:column;line-height:.82;user-select:none;}
+  .logo-img{height:46px;width:auto;display:block;}
+  @media(max-width:760px){.logo-img{height:38px;}}
   .logo .the{font-family:'Caveat';font-weight:700;font-size:20px;color:var(--yellow);transform:rotate(-6deg);margin-bottom:-3px;margin-left:2px;}
   .logo .nm{font-weight:800;font-size:21px;letter-spacing:.5px;}
   .logo .nm .b{color:var(--wood);}
@@ -199,7 +201,7 @@
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="nav-in">
-    <div class="logo"><span class="the">the</span><span class="nm">VẠN <span class="b">THỊNH</span></span><span class="rs">R E S T &nbsp; S T O P</span></div>
+    <a href="#" class="logo"><img class="logo-img" src="assets/real/logo-web.png" alt="the Vạn Thịnh Rest Stop"></a>
     <nav class="nav-links" id="navlinks">
       <a href="#khong-gian" data-en="Space">Không gian</a>
       <a href="#kham-pha" data-en="Capacity">Sức chứa</a>
